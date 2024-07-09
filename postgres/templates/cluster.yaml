@@ -1,0 +1,21 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: {{ .Values.clusterName }}
+spec:
+  description: cloud native pg cluster
+  imageName: {{ .Values.image.name }}:{{ .Values.image.tag }}
+  instances: {{ .Values.instances }}
+  bootstrap:
+    initdb:
+      database: {{ .Values.database.name }}
+      owner: {{ .Values.database.owner }}
+      localeCollate: en_US.UTF-8
+      encoding: UTF-8
+      localeCType: en_US.UTF-8
+      secret:
+        name: {{ .Values.database.name }}-owner-user
+  storage:
+    size: "{{ .Values.storage.pgData.sizeGb }}Gi"
+  walStorage:
+    size: "{{ .Values.storage.wal.sizeGb }}Gi"

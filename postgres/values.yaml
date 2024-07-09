@@ -1,0 +1,15 @@
+clusterName: postgres-cluster
+image:
+  name: ghcr.io/cloudnative-pg/postgresql
+  tag: 13.6
+instances: 2
+database:
+  name: stack
+  owner: stack
+storage:
+  pgData:
+    # -- The size of the persistent volume that will be created for the database.
+    sizeGb: 10
+  wal:
+    # -- The size of the persistent volume that will be created for the WAL.
+    sizeGb: 10
