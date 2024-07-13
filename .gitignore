@@ -1,7 +1,2 @@
 ### Jetbrains
 .idea
-local-config
-
-### Helm template
-# Chart dependencies
-**/charts/*.tgz
