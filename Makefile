@@ -12,3 +12,9 @@ install-cnpg-controller:
 
 install-cnpg-cluster:
 	kubectl apply -f ./postgres/cluster.yaml
+
+install-kc:
+	kubectl apply -f keycloak/keycloak.yaml
+
+uninstall-kc:
+	kubectl delete -f keycloak/keycloak.yaml
