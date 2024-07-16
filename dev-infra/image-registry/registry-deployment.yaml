@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: registry-deployment
+  labels:
+    app: registry-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: registry-deployment
+  template:
+    metadata:
+      name: registry-deployment
+      labels:
+        app: registry-deployment
+    spec:
+      containers:
+        - name: registry-container
+          image: registry:2
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+      restartPolicy: Always
+      
