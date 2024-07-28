@@ -18,6 +18,3 @@ install-kc:
 
 uninstall-kc:
 	kubectl delete -f keycloak/keycloak.yaml
-
-forward-registry:
-	kubectl port-forward --namespace default svc/registry-service 5001:5000
